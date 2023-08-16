@@ -39,9 +39,9 @@ def predict():
     X = pd.DataFrame([row], columns = columns)
     p_x= preprocessor(X)
     prediction = model.predict(p_x)
-    if prediction[0] == 1: 
+    if prediction[0] == 0: 
         st.success('The patient is more likely to survive :thumbsup:')
-    else: 
+    elif prediction[0] == 1: 
         st.error('The patient is more likely not to survive :thumbsdown:') 
 
 trigger = st.button('Predict', on_click=predict)
